@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>iSpace</title>
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/switch.css">
+
+    <!-- JAVASCRIPT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="javascript/main.js"></script>
+    
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+
+  </head>
+  <body>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <header class="header"> </header>
+
+    <!-- Interface bij klein schersm -->
+    <main class="mainF noSpace">
+      <article class="block a tabletScreen">
+        <a href="html/voertuig_informatie.html"><p>Voertuig informatie</p>
+          <img src="images/vehicleInformation.png" class="icon"/>
+        </a>
+      </article>
+      <article class="block b tabletScreen">
+        <a href="html/voertuig_omgeving.html"><p>Voertuig omgeving</p>
+          <img src="images/surroundings.png" class="icon">
+        </a>
+      </article> 
+      <article class="block c tabletScreen">
+        <a href="html/voertuig_voorraden.html"><p>Voorraden</p>
+          <img src="images/voorraad.png" class="icon"/>
+        </a>
+      </article>
+      <article class="block d tabletScreen">
+        <a href="html/voertuig_tools.html"><p>Tools</p>
+          <img src="images/tools.png" class="icon"/>
+        </a>
+      </article>
+    </main>
+
+    <!-- Interface bij groot scherm -->
+
+    <main class="mainFBig">
+      <article class="block fuel">
+        <div class="container">
+          <canvas id="fuelChart" height="300" width="350"></canvas>
+        </div>
+        
+        <script>
+          let myChart = document.getElementById('fuelChart').getContext('2d');
+
+                let fuel =  new Chart(myChart, {
+                    type: 'bar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                    data:{
+                      labels:['2015', '2016', '2017', '2018'],
+                      datasets:[ 
+                        {
+                          label: 'Kerosine in liters', 
+                          backgroundColor: 'rgba(145,200,253,0.1)',
+                          borderColor: '#00ff0',
+                          borderWidth: 2,
+                          data:[500,456,334,801]
+                        },
+                        {
+                          label: 'Elektriciteit in watt', 
+                          backgroundColor: 'rgba(0,255,255,0.1)',
+                          borderColor: '#00FFFF',
+                          borderWidth: 2,
+                          data:[4000, 4521, 5012, 3321]
+                        }
+                      ]
+                    }
+                });
+        </script>
+      </article>
+      <article class="block speed speedIndex">
+        <div class="container">
+          <canvas id="speedChart" height="300" width="350"></canvas>
+        </div>
+          <script>
+
+            let speed = document.getElementById('speedChart').getContext('2d');
+                let speedChart =  new Chart(speed, {
+                  type: 'horizontalBar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                        data:{
+                          labels:['speed in km/h'],
+                          datasets:[ 
+                            {
+                              label: 'speed', 
+                              backgroundColor: 'rgba(0,255,255,0.1)',
+                              borderColor: '#00FFFF',
+                              borderWidth: 2,
+                              data:[550]
+                            }
+                          ]
+                        }
+                }
+            );
+        </script>
+      </article> 
+      <article class="block acceleration">
+        <p>Acceleratie</p>
+      </article>
+      <article class="block gforce gforceIndex">
+        <div class="container">
+          <canvas id="gForceChart" height="300" width="350"></canvas>
+        </div>
+          <script>
+            let forceChart = document.getElementById('gForceChart').getContext('2d');
+              
+              let gForceChart =  new Chart(forceChart, {
+                  type: 'radar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                  data:{
+                    labels:['up', 'right', 'down', 'left'],
+                    datasets:[ 
+                      {
+                        label: 'G-Force 2016', 
+                        backgroundColor: 'rgba(255,255,255,0.5)',
+                        borderColor: '#FFF',
+                        borderWidth: 2,
+                        data:[0.1,0.7, 0.3, 0.2]
+                      },
+                      {
+                        label: 'G-Force 2017', 
+                        backgroundColor: 'rgba(0,255,255,0.1)',
+                        borderColor: '#00FFFF',
+                        borderWidth: 2,
+                        data:[0.4,0.1, 0.9, 0.8]
+                      }
+                    ]
+                }
+                
+            });
+          </script>
+      </article>
+      <article class="block gravity">
+        <div class="container">
+          <canvas id="gravity" height="300" width="450"></canvas>
+        </div>
+          <script>
+            let grav = document.getElementById('gravity').getContext('2d');
+
+             let gravity = new Chart(grav, {
+              type: 'line', //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+              
+              data: {
+                labels: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00','21:00', '22:00', '23:00'],
+                datasets:[
+                  {  
+                    label: 'druk', 
+                    backgroundColor: 'rgba(75,192,192,0.4)',
+                    borderColor: '#00FFFF',
+                    borderWidth: 1,
+                    borderDash: [5],        
+                    data: [-1, 3, -3, -4, -5, 6, 15, 3, 2, -5, -10, 1, 4, 8, -11, -12, 11, 8, 4, -2, 4, 6, 7, 5, 0]
+                  }
+                ]
+              },
+              options: {
+                title: {
+                    display: true,
+                    text: 'Zwaartkracht(per dag)'
+                }
+              }
+             });
+          </script>
+      </article>
+      <article class="block distance">
+        <div class="container">
+          <canvas id="distance" height="300" width="350"></canvas>
+        </div>
+          <script>
+            var canvas = document.getElementById('distance');
+            var data = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        label: "Afstand per maand in kilometers",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(75,192,192,0.4)",
+                        borderColor: "rgba(75,192,192,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHitRadius: 10,
+                        data: [15111, 21990, 25999, 43900, 69912, 87211, 99099],
+                    }
+                ]
+            };
+
+            var option = {
+              showLines: true
+            };
+            var myLineChart = Chart.Line(canvas,{
+              data:data,
+              options:option
+            });
+          </script>
+      </article> 
+      <article class="block atmosphere">
+        <div class="container">
+          <canvas id="atmosphere" height="300" width="350"></canvas> 
+        </div>
+          <script>
+            let atmosphere = document.getElementById('atmosphere').getContext('2d');
+
+            let atmos = new Chart(atmosphere, {
+              type: 'doughnut',
+              data: {
+                labels: ['N2', 'O3', 'H20', 'o2', 'CO2'],
+                datasets:[
+                  {  
+                    label: 'Points',
+                    borderColor: '#00FFFF',
+                    backgroundColor: ['rgba(75,192,192,0.8)', 'rgba(145,200,253,0.1)', 'rgba(106, 188, 231,0.5)', 'rgba(0,255,255,0.1)', 'white '],
+                    data: [10,34,33,20,3],
+
+                  }
+                ]
+              },
+              options: {
+                title: {
+                    display: true,
+                    text: 'Atmosphere'
+                }
+              }
+             });
+          </script>
+      </article>
+      <article class="block food">
+        <div class="container">
+          <canvas id="meatFoodChart" height="300" width="350"></canvas>
+        </div>
+          <script>
+            let food = document.getElementById('meatFoodChart').getContext('2d');
+
+            let massPopChart =  new Chart(food, {
+              type: 'bar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+              data:{
+                labels:['Varken', 'Koe', 'Kip', 'Eend'],
+                datasets:[ {
+                  label: '', 
+                  data:[
+                    8869,
+                    2233,
+                    6678,
+                    7754,
+                  ],
+
+                  // backgroundColor: 'green'
+
+                  backgroundColor:[
+                    'rgba(145,200,253,0.1)',
+                    'rgba(75, 192, 192, 0.4)',
+                    'rgba(145,200,253,0.1)',
+                    'rgba(75, 192, 192, 0.4)',
+                  ],
+
+                  borderWidth: 1,
+                  borderColor: '#00FFFF',
+                  hoverBorderWidth: 3,
+                  hoverBorderColor: '#000'
+
+                }]
+
+              },
+              options:{
+                title:{
+                  display:true,
+                  text: 'Vlees vooraad',
+                  fontSize: 25
+                },
+                legend:{
+                  display: false,
+                  position: 'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+              }
+            });
+          </script>  
+      </article>
+      <article class="block water">
+        <div class="container">
+          <canvas id="water" height="300" width="350" ></canvas> 
+        </div>
+          <script>
+            let water = document.getElementById('water').getContext('2d');
+
+              let waterChart = new Chart(water, {
+              type: 'bar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                data:{
+                  labels:['Water', 'Bruiswater', 'Kunstmatigwater'],
+                  datasets:[ {
+                    label: '', 
+                    data:[
+                      81443,
+                      77664,
+                      55773,
+                    ],
+
+                    // backgroundColor: 'green'
+                    backgroundColor:[
+                      'rgba(99, 216, 255, 0.6)',
+                      'rgba(54, 162, 235, 0.6)',
+                      'rgba(182, 237, 255, 0.6)'              ],
+
+                    borderWidth: 1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+
+                  }]
+
+                },
+                options:{
+                  title:{
+                    display:true,
+                    text: 'Inhoud watercapaciteit in liters',
+                    fontSize: 15
+                  },
+                  legend:{
+                    display: false,
+                    position: 'right',
+                    labels:{
+                      fontColor:'#000'
+                    }
+                  },
+                }
+              });
+          </script>
+      </article>
+      <article class="block gravityConvert">
+        <div class="rss">
+  
+          <input type="checkbox" id="buttonThree" />
+          <label for="buttonThree"> <!-- class="attention" -->
+            <i></i>
+          </label>
+          
+        </div><!-- /rss -->
+      </article>
+      <article class="block marsEarth">
+        <p>Mars naar Aarde afstand omzetten</p>
+      </article>
+    </main>
+
+    <footer>
+    </footer>
+      
+  <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+</html>

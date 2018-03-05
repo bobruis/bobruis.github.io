@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Voertuig informatie</title>
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="../css/css.css">
+
+
+
+    <!-- JAVASCRIPT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="../javascript/main.js"></script>
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+
+  </head>
+  <body>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <header class="header">
+        <a href="../index.html" class="previous">&laquo; Previous</a>
+    </header>
+  
+    <main class="mainF vehicleInformationOnBigScreen">
+      <article class="block fuel blockInformation">
+        <div class="container">
+          <canvas id="fuelChart"></canvas>
+        </div>       
+          <script>
+          let myChart = document.getElementById('fuelChart').getContext('2d');
+
+                let fuel =  new Chart(myChart, {
+                    type: 'bar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                    data:{
+                      labels:['2015', '2016', '2017', '2018'],
+                      datasets:[ 
+                        {
+                          label: 'Kerosine in liters', 
+                          backgroundColor: 'rgba(145,200,253,0.1)',
+                          borderColor: '#00ff0',
+                          borderWidth: 2,
+                          data:[500,456,334,801]
+                        },
+                        {
+                          label: 'Elektriciteit in watt', 
+                          backgroundColor: 'rgba(0,255,255,0.1)',
+                          borderColor: '#00FFFF',
+                          borderWidth: 2,
+                          data:[4000, 4521, 5012, 3321]
+                        }
+                      ]
+                    }
+                });
+          </script>
+      </article>
+      <article class="block speed blockInformation">
+        <div class="container">
+          <canvas id="speedChart"></canvas>
+        </div>
+          <script>
+
+            let speed = document.getElementById('speedChart').getContext('2d');
+                let speedChart =  new Chart(speed, {
+                  type: 'horizontalBar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                        data:{
+                          labels:['speed in km/h'],
+                          datasets:[ 
+                            {
+                              label: 'speed', 
+                              backgroundColor: 'rgba(0,255,255,0.1)',
+                              borderColor: '#00FFFF',
+                              borderWidth: 2,
+                              data:[550]
+                            }
+                          ]
+                        }
+                }
+            );
+          </script>
+      </article> 
+      <article class="block acceleration blockInformation">
+        <p>Acceleratie</p>
+      </article>
+      <article class="block gforce blockInformation">
+        <div class="container">
+          <canvas id="gForceChart"></canvas>
+        </div>
+          <script>
+            let forceChart = document.getElementById('gForceChart').getContext('2d');
+              
+              let gForceChart =  new Chart(forceChart, {
+                  type: 'radar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                  data:{
+                    labels:['up', 'right', 'down', 'left'],
+                    datasets:[ 
+                      {
+                        label: 'G-Force 2016', 
+                        backgroundColor: 'rgba(255,255,255,0.5)',
+                        borderColor: '#FFF',
+                        borderWidth: 2,
+                        data:[0.1,0.7, 0.3, 0.2]
+                      },
+                      {
+                        label: 'G-Force 2017', 
+                        backgroundColor: 'rgba(0,255,255,0.1)',
+                        borderColor: '#00FFFF',
+                        borderWidth: 2,
+                        data:[0.4,0.1, 0.9, 0.8]
+                      }
+                    ]
+                }
+                
+            });
+          </script>
+      </article>
+    </main>
+
+    <footer>
+    </footer>
+      
+  <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+</html>

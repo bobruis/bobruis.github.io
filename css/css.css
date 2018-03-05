@@ -1,0 +1,350 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    line-height:1;
+    font-family: 'Lato', sans-serif;
+    background-color: #041b37;
+    color: white;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+a {
+    color: #000;
+}	
+
+section {
+	cursor: pointer;
+}
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+  .mainF{
+  	display: flex;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 5%;
+  }
+
+  .noSpace{
+    margin-top: 0% !important;
+  }
+  .mainFBig{
+  	display: none;
+  }
+
+  .block{
+    display: flex;
+    width: 50%;
+    height: 187px;  
+    justify-content: center;
+    align-items: center;
+  }
+  /*Is alleen geldig op alle pagina's op de index na*/
+
+  .blockInformation{
+    width: 100% !important;
+    margin-top: 10px;   
+  }
+  /**/
+  .container{
+    width: 100%;
+    height: auto; 
+  }
+  .tabletScreen:hover{
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+
+  .gravityToolsPage{
+    width: 100%;
+    height: 100%;  
+  }
+
+	img.icon{
+		width: 50px;
+		height: auto;
+		margin-top: 25px;
+	}
+
+  .a, .b, .c, .d{    
+    display:flex; 
+    flex-direction: column;
+  	
+    width: 100%;
+	  height: 350px;
+
+    color: white;
+  }
+
+  a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none; 
+    color: white; 
+    text-align: center;
+  }
+
+  a.previous:hover{
+    background-color: #ddd;
+    color: black;
+  }
+
+  .previous{
+    background-color: #f1f1f1;
+    color: black;
+  }
+
+  p{
+  	font-size: 18px;
+  }
+
+
+@media (min-width: 500px) {
+  .blockInformation{
+      width: 90% !important;
+      margin-left: 5%;
+      margin-top: 10%;
+  }
+
+}
+@media (min-width: 768px) {
+	.mainF{
+		display: flex;
+		justify-content: space-between;
+		height: auto;
+		width: 100%;
+		flex-wrap: wrap;
+    margin-top: 5%;
+	}
+
+	.block{
+		display: flex;
+		width: 50%;
+		height: 100%;
+		padding: 10px;  
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	 }
+
+  .blockInformation{
+      width: 90% !important;
+      margin-top: 0%; 
+      margin-left: 5%;
+  }
+
+  .tabletScreen{
+    height: 350px !important;
+   }
+}
+
+@media (min-width: 1024px) {
+	.mainF{
+		display: none;
+	}
+
+  .vehicleInformationOnBigScreen{
+    display: flex;
+    margin-top: 5%;
+  }
+
+	.mainFBig{
+		display: flex;
+		height: auto;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+  .block{
+		width: 33.3%;
+		height: 350px;
+		padding: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: 0%;
+		color: black;
+    background-color: #041b37;
+  }	
+
+  .blockInformation{
+      width: 48% !important;
+      height: auto;
+      margin-top: 2% !important;
+      margin-left: 1%;
+  }
+  .container{
+    width: 100%;
+    height: auto; 
+
+  }
+
+  canvas{
+    background-color: none;
+    height: 300px;
+    height: 300px;
+  }
+
+
+
+/*	.fuel, .speed, .acceleration, .distance , .food, .water, .gforce, .gravity, .atmosphere, .gravityConvert, .marsEarth{
+		border-style: solid;
+	}*/
+}
+
+@media (min-width: 1280px) {
+   .block{
+    width: 33.3%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0%;
+    color: black;
+    background-color: #041b37;
+  } 
+
+  .gravityToolsPage{
+    width: 100% !important;
+  }
+}

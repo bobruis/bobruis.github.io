@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Voertuig voorraden</title>
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="../css/css.css">
+    
+    <!-- JAVASCRIPT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+
+  </head>
+  <body>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <header class="header">
+      <a href="../index.html" class="previous">&laquo; Previous</a>
+  </header>
+
+  <main class="mainF vehicleInformationOnBigScreen">
+    <article class="block food blockInformation">
+        <div class="container">
+          <canvas id="meatFoodChart"></canvas>
+        </div>
+          <script>
+            let food = document.getElementById('meatFoodChart').getContext('2d');
+
+            let massPopChart =  new Chart(food, {
+              type: 'bar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+              data:{
+                labels:['Varken', 'Koe', 'Kip', 'Eend'],
+                datasets:[ {
+                  label: '', 
+                  data:[
+                    8869,
+                    2233,
+                    6678,
+                    7754,
+                  ],
+
+                  // backgroundColor: 'green'
+
+                  backgroundColor:[
+                    'rgba(145,200,253,0.1)',
+                    'rgba(75, 192, 192, 0.4)',
+                    'rgba(145,200,253,0.1)',
+                    'rgba(75, 192, 192, 0.4)',
+                  ],
+
+                  borderWidth: 1,
+                  borderColor: '#00FFFF',
+                  hoverBorderWidth: 3,
+                  hoverBorderColor: '#000'
+
+                }]
+
+              },
+              options:{
+                title:{
+                  display:true,
+                  text: 'Vlees vooraad',
+                  fontSize: 25,
+                  fontColor: 'white'
+                },
+                legend:{
+                  display: false,
+                  position: 'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'white'
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'white'    
+                        }
+                    }]
+                }
+              }
+            });
+          </script>  
+      </article>
+      <article class="block water blockInformation">
+        <div class="container">
+          <canvas id="water"></canvas> 
+        </div>
+          <script>
+            let water = document.getElementById('water').getContext('2d');
+
+              let waterChart = new Chart(water, {
+              type: 'bar',  //bar, horizontalBar, pie, line, dougnet, radar, polarArea
+                data:{
+                  labels:['Water', 'Bruiswater', 'Kunstmatigwater'],
+                  datasets:[ {
+                    label: '', 
+                    data:[
+                      81443,
+                      77664,
+                      55773,
+                    ],
+
+                    // backgroundColor: 'green'
+                    backgroundColor:[
+      
+                      'rgba(145,200,253,0.1)',
+                      'rgba(75, 192, 192, 0.4)',
+                      'rgba(145,200,253,0.1)'
+                    ],
+
+                    borderWidth: 1,
+                    borderColor: '#00FFFF',
+                    hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+
+                  }]
+
+                },
+                options:{
+                  title:{
+                    display:true,
+                    text: 'Inhoud watercapaciteit in liters',
+                    fontSize: 25,
+                    fontColor: 'white'
+                  },
+                  legend:{
+                    display: false,
+                    position: 'right',
+                    labels:{
+                      fontColor:'pink'
+                    }
+                  },
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              fontColor: 'white'
+                          }
+                      }],
+                      xAxes: [{
+                          ticks: {
+                              fontColor: 'white'    
+                          }
+                      }]
+                  }
+                }
+              });
+          </script>
+      </article>
+  </main>
+
+  <footer>
+  </footer>
+      
+  <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+</html>
